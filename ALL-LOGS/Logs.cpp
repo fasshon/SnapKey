@@ -37,12 +37,12 @@ bool WriteToFile(std::string String, std::string FileName)
 
 bool CheckLogFile()
 {
-    return std::filesystem::exists("Lirix.txt");
+    return std::filesystem::exists("SnapKeyLogs.txt");
 }
 
 bool CreateLogFile()
 {
-    std::ofstream CreateLog("Lirix.txt");
+    std::ofstream CreateLog("SnapKeyLogs.txt");
     return CreateLog.is_open();
 }
 
@@ -50,12 +50,12 @@ bool WriteLog(std::string ErrorReason)
 {
     try
     {
-        if (!CheckLogFile())   // FIXED — calling the function
+        if (!CheckLogFile())   // FIXED â€” calling the function
         {
             CreateLogFile();
         }
 
-        WriteToFile(ErrorReason, "Lirix.txt");
+        WriteToFile(ErrorReason, "SnapKeyLogs.txt");
         return true;
     }
     catch (const std::exception&)
@@ -64,3 +64,4 @@ bool WriteLog(std::string ErrorReason)
         return false;
     }
 }
+
